@@ -8,7 +8,7 @@ jobs:
     steps:
       - run:
           name: Set TAG Value
-          command: bash export IMAGETAG='date +%d%m%Y'
+          command: bash "export IMAGETAG='date +%d%m%Y'"
 workflows:
   build_and_push_image:
     jobs:
