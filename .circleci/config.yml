@@ -1,12 +1,18 @@
 orbs:
   aws-ecr: circleci/aws-ecr@6.9.1
 version: 2.1
-workflows:
-  build_and_push_image:
-    jobs:
+jobs:
+  SetTAGValue:
+    executor:
+      name: aws-ecr
+    steps:
       - run:
           name: Set TAG Value
           command: bash export IMAGETAG='date +%d%m%Y'
+workflows:
+  build_and_push_image:
+    jobs:
+      - SetTAGValue:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME
           aws-access-key-id: ACCESS_KEY_ID_ENV_VAR_NAME
