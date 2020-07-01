@@ -1,6 +1,9 @@
 orbs:
   aws-ecr: circleci/aws-ecr@6.9.1
 version: 2.1
+  executors:
+    environment:
+      PACKAGE_NAME_PREFIX: "BUILD"
 workflows:
   build_and_push_image:
     jobs:
@@ -13,4 +16,4 @@ workflows:
           no-output-timeout: 20m
           region: AWS_REGION_ENV_VAR_NAME
           repo: customaspnetapp
-          tag: "${date}${CIRCLE_BUILD_NUM}"
+          tag: "${PACKAGE_NAME_PREFIX}${CIRCLE_BUILD_NUM}"
