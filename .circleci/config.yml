@@ -1,12 +1,14 @@
 orbs:
   aws-ecr: circleci/aws-ecr@6.9.1
 version: 2.1
-  executors:
-    environment:
-      PACKAGE_NAME_PREFIX: "BUILD"
 workflows:
   build_and_push_image:
     jobs:
+     steps:
+      - run:
+        name: Setup TAG Variables
+        command: |
+          echo "export IMAGETAG=BUILD" >> $IMAGETAG"
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME
           aws-access-key-id: ACCESS_KEY_ID_ENV_VAR_NAME
@@ -16,4 +18,4 @@ workflows:
           no-output-timeout: 20m
           region: AWS_REGION_ENV_VAR_NAME
           repo: customaspnetapp
-          tag: "${PACKAGE_NAME_PREFIX}${CIRCLE_BUILD_NUM}"
+          tag: "${IMAGETAG}${CIRCLE_BUILD_NUM}"
