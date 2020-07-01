@@ -12,5 +12,5 @@ workflows:
           dockerfile: Dockerfile
           no-output-timeout: 20m
           region: AWS_REGION_ENV_VAR_NAME
-          repo: ecs-cicd-nginx
+          repo: customaspnetapp
           tag: BUILD${CIRCLE_BUILD_NUM}
