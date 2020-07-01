@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ASP.NET Core Docker Sample
 
 This sample demonstrates how to build container images for ASP.NET Core web apps. You can use these samples for Linux and Windows containers, for x64, ARM32 and ARM64 architectures.
@@ -198,3 +199,6 @@ aspnetapp           nanoserver          1e16a73b42b3        34 seconds ago      
 
 * [.NET Core Docker Samples](../README.md)
 * [.NET Framework Docker Samples](https://github.com/microsoft/dotnet-framework-docker/blob/master/samples/README.md)
+=======
+# aspnetappproject
+>>>>>>> 7e69c04557e09b608855109467b39ab92068f275
